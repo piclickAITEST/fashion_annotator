@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Piclick AI Annotator</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- Bootstrap core CSS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="../static/css/mainstyle.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="../static/js/main.js"></script>
+
+</head>
+
+<body>
+<br>
+<div class='container'>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <button class="btn btn-outline-secondary dropdown-toggle" id="ymselect" type="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">Year/Month
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="javascript:ymSelect('201910')">2019/10</a>
+                <a class="dropdown-item" href="javascript:ymSelect('201911')">2019/11</a>
+            </div>
+
+            <div style="margin-left: 20px;" class="input-group">
+              <input type="text" class="form-control" id="findindex" >
+                <button style="margin-left: 5px;" type="submit" class="btn btn-secondary" onclick="findindex();">Submit</button>
+            </div>
+
+            <div>
+              <button style="margin-left: 20px" type="button" class="alarm btn btn-info">AutoSaved</button>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="container" style="height:50px">
+        <span class="h4 badge badge-secondary" id="text_container"></span>
+        <span class="h5 badge badge-secondary" id="index_container"></span>
+        <span class="h5 badge badge-secondary" id="length_container"></span>
+        <span class="h5 badge badge-secondary" id="reset_container"></span>
+        <span class="h5 badge badge-secondary" id="off_container"></span>
+        <span class="h5 badge badge-secondary" id="modify_container"></span>
+        <span class="h5 badge badge-secondary" id="insert_container"></span>
+
+
+        <button style='display: none' class="label btn btn-outline-secondary dropdown-toggle" id="cateselect" type="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="javascript:insertBox('Outer')">Outer</a>
+            <a class="dropdown-item" href="javascript:insertBox('Top')">Top</a>
+            <a class="dropdown-item" href="javascript:insertBox('Bottom')">Bottom</a>
+            <a class="dropdown-item" href="javascript:insertBox('Onepiece')">Onepiece</a>
+            <a class="dropdown-item" href="javascript:insertBox('Bag')">Bag</a>
+            <a class="dropdown-item" href="javascript:insertBox('Shoe')">Shoe</a>
+            <a class="dropdown-item" href="javascript:insertBox('Belt')">Belt</a>
+            <a class="dropdown-item" href="javascript:insertBox('Hat')">Hat</a>
+            <a class="dropdown-item" href="javascript:insertBox('Bracelet')">Bracelet</a>
+            <a class="dropdown-item" href="javascript:insertBox('Glasses')">Glasses</a>
+            <a class="dropdown-item" href="javascript:insertBox('Necklace')">Necklace</a>
+            <a class="dropdown-item" href="javascript:insertBox('Necktie')">Necktie</a>
+            <a class="dropdown-item" href="javascript:insertBox('Watch')">Watch</a>
+            <a class="dropdown-item" href="javascript:insertBox('Earring')">Earring</a>
+        </div>
+    </div>
+    <hr>
+
+    <div class="row" style="position: relative">
+        <div class="image_container" style="width: 800px; height: 800px;"></div>
+        <div class="label_container"></div>
+        <div class="select_container"></div>
+    </div>
+    
+    <hr>
+
+    <a href="#" id="link" download="sample.json" onclick="makedownload();">Downloads to JSON</a>
+    <br><br>
+</div>
+</body>
+</html>
